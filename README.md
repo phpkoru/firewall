@@ -14,7 +14,7 @@ PHPkoru Firewall, php sayfalarınıza gelebilecek Katman 7 DoS / DDoS saldırıl
 
 ### Nasıl kullanılır
 
-Katman 7 DoS / DDoS saldırılarından korumak istediğiniz PHP sayfalarına aşağıdaki dosyayı dahil edin.
+Katman 7 DoS / DDoS saldırılarından korumak istediğiniz PHP sayfalarının en üstüne aşağıdaki dosyayı dahil edin.
 ```
 <?php
 include_once __DIR__."/phpkoru-firewall.php";
@@ -37,7 +37,7 @@ PHPkoru Firewall, protects you from Layer 7 DoS / DDoS attacks that can happen t
 
 ### How to use
 
-Include the following file in the PHP pages you want to protect for Layer 7 DoS / DDoS attacks.
+Include the following file at the top of the PHP pages you want to protect for Layer 7 DoS / DDoS attacks.
 ```
 <?php
 include_once __DIR__."/phpkoru-firewall.php";
