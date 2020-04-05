@@ -10,7 +10,7 @@ PHPkoru Firewall, php sayfalarınıza gelebilecek Katman 7 DoS / DDoS saldırıl
 ### Özellikler
 - Açık kaynak
 - Tam optimize edildi
-- İstemci ve php taraflı. Oturumlar yok, sadece çerezler kullanılır.
+- İstemci ve php taraflı. Oturumlar (session) yok, sadece çerezler kullanılır.
 
 ### Nasıl kullanılır
 
