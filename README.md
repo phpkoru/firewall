@@ -20,6 +20,7 @@ Katman 7 DoS / DDoS saldırılarından korumak istediğiniz PHP sayfalarının e
 include_once __DIR__."/phpkoru-firewall.php";
 ?>
 ```
+Böylece korunan sayfalara bir kişi erişmek istediğinde, tarayıcının bir JavaScript betiğini işlemesi gerekir.
 
 # PHPkoru Firewall
 
@@ -43,3 +44,4 @@ Include the following file at the top of the PHP pages you want to protect for L
 include_once __DIR__."/phpkoru-firewall.php";
 ?>
 ```
+Thus, when someone wants to access protected pages, the browser needs to process a JavaScript script.
