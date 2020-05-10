@@ -5,14 +5,64 @@
 	* Firewall: https://phpkoru.com/firewall/
 	* Developer Website: https://aponkral.dev/
 	*
-	* Version: v1.0.1
+	* Version: v1.0.2
 	*
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK
 
+$pf_enabled = true; // Setting to activate or deactivate PHPkoru Firewall
+
+$pf_setting_whitelist_ips = false; // Setting to enable or disable the whitelist feature. It can be set from the $whitelist_ips variable on line 40.
 $pf_cookie_sec_key = "PHPkoru-Firewall"; //Editable for security
 
 // That’s all, stop editing! Do not edit or change the following codes.
+
+// Whitelist Feature Started
+if ($pf_setting_whitelist_ips == true)
+{
+	function pf_ip_in_range($ip, $range) {
+		if (strpos($range, "/") == false) {
+			$range .= "/32";
+		}
+		list($range, $netmask) = explode("/", $range, 2);
+		$range_decimal = ip2long($range);
+		unset($range);
+		$ip_decimal = ip2long($ip);
+		unset($ip);
+		$wildcard_decimal = pow(2, (32 - $netmask) ) - 1;
+		unset($netmask);
+		$netmask_decimal = ~ $wildcard_decimal;
+		unset($wildcard_decimal);
+		return(($ip_decimal & $netmask_decimal) == ($range_decimal & $netmask_decimal));
+		unset($range_decimal, $ip_decimal, $netmask_decimal);
+	}
+
+	$whitelist_ips = [
+	"127.0.0.1",
+	"1.1.1.1/32"
+	];
+
+	$whitelist_allowed = false;
+	foreach ($whitelist_ips as $whitelist_ip)
+	{
+	if (pf_ip_in_range($_SERVER["REMOTE_ADDR"], $whitelist_ip) == true)
+		$whitelist_allowed = true;
+	unset($whitelist_ip);
+	}
+	unset($whitelist_ips);
+}
+unset($pf_setting_whitelist_ips);
+
+if ($whitelist_allowed == true)
+{
+	unset($whitelist_allowed);
+	$pf_enabled = false;
+}
+// Whitelist Feature Ended
+
+if ($pf_enabled == true)
+{
+unset($pf_enabled);
 
 $pf_https = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on") ? true : false;
 $pf_domain = (isset($_SERVER["HTTP_HOST"]) && !empty(trim($_SERVER["HTTP_HOST"]))) ? $_SERVER["HTTP_HOST"] : "phpkoru.com";
@@ -41,4 +91,7 @@ unset($pf_https, $pf_domain);
 
 if (isset($pf_sec_token))
 	unset($pf_sec_token);
+}
+else
+	unset($pf_enabled, $pf_cookie_sec_key);
 ?>
