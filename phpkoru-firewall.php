@@ -5,7 +5,7 @@
 	* Firewall: https://phpkoru.com/firewall/
 	* Developer Website: https://aponkral.dev/
 	*
-	* Version: v1.0.2
+	* Version: v1.0.3
 	*
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK
@@ -81,9 +81,9 @@ if ((!isset($_COOKIE["__pf"]) || empty($_COOKIE["__pf"])) || ((isset($_COOKIE["_
 	$pf_redirect_url .= (isset($_SERVER["REQUEST_URI"]) && !empty(trim($_SERVER["REQUEST_URI"]))) ? $_SERVER["REQUEST_URI"] : "/";
 	$pf_setcookie_js = "function phpkoru(f,i,r,e,w,a,l,l)
 {
-	var _0x36fd=['".base64_encode("__pf")."','cookie','".base64_encode($pf_redirect_url)."',';\x20path=/;\x20domain=','replace'];(function(_0x4e7145,_0x36fd29){var _0x4d0d98=function(_0x31a569){while(--_0x31a569){_0x4e7145['push'](_0x4e7145['shift']());}};_0x4d0d98(++_0x36fd29);}(_0x36fd,0x1ad));var _0x4d0d=function(_0x4e7145,_0x36fd29){_0x4e7145=_0x4e7145-0x0;var _0x4d0d98=_0x36fd[_0x4e7145];return _0x4d0d98;};document[_0x4d0d('0x2')]=atob(_0x4d0d('0x1'))+'='+atob('".base64_encode($pf_sec_token)."')+_0x4d0d('0x4')+atob('".base64_encode($pf_domain)."')+';';setTimeout(function(){window['location'][_0x4d0d('0x0')](atob(_0x4d0d('0x3')));},0x32);
+	var _0x36fd=['".base64_encode("__pf")."','cookie','".base64_encode($pf_redirect_url)."',';\x20path=/;\x20domain=','replace'];(function(_0x4e7145,_0x36fd29){var _0x4d0d98=function(_0x31a569){while(--_0x31a569){_0x4e7145['push'](_0x4e7145['shift']());}};_0x4d0d98(++_0x36fd29);}(_0x36fd,0x1ad));var _0x4d0d=function(_0x4e7145,_0x36fd29){_0x4e7145=_0x4e7145-0x0;var _0x4d0d98=_0x36fd[_0x4e7145];return _0x4d0d98;};document[_0x4d0d('0x2')]=atob(_0x4d0d('0x1'))+'='+atob('".base64_encode($pf_sec_token)."')+_0x4d0d('0x4')+atob('".base64_encode($pf_domain)."')+';';setTimeout(function(){window['location'][_0x4d0d('0x0')](atob(_0x4d0d('0x3')));},0x200);
 }
-phpkoru('f','i','r','e','w','a','l','l');";
+if (navigator.cookieEnabled == true) {phpkoru('f','i','r','e','w','a','l','l');}else{document.body.innerHTML = 'Cookies are disabled. Cookies must be enabled to access this page.';}";
 	exit("<html><head><title>Redirecting... - PHPkoru Firewall</title></head><body><script type=\"text/javascript\">".$pf_setcookie_js."</script><noscript><h1 style=\"color:#bd2426;\">Please turn JavaScript on and reload the page.</h1></noscript></body><html>");
 	unset($pf_redirect_url, $setcookie_js);
 }
