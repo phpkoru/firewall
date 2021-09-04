@@ -5,7 +5,7 @@
 	* Firewall: https://phpkoru.com/firewall/
 	* Developer Website: https://aponkral.dev/
 	*
-	* Version: v1.0.3
+	* Version: v1.0.4
 	*
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK

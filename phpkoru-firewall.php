@@ -5,7 +5,7 @@
 	* Firewall: https://phpkoru.com/firewall/
 	* Developer Website: https://aponkral.dev/
 	*
-	* Version: v1.0.3
+	* Version: v1.0.4
 	*
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK
@@ -18,6 +18,7 @@ $pf_cookie_sec_key = "PHPkoru-Firewall"; //Editable for security
 // That’s all, stop editing! Do not edit or change the following codes.
 
 // Whitelist Feature Started
+$whitelist_allowed = false;
 if ($pf_setting_whitelist_ips == true)
 {
 	function pf_ip_in_range($ip, $range) {
@@ -42,7 +43,6 @@ if ($pf_setting_whitelist_ips == true)
 	"1.1.1.1/32"
 	];
 
-	$whitelist_allowed = false;
 	foreach ($whitelist_ips as $whitelist_ip)
 	{
 	if (pf_ip_in_range($_SERVER["REMOTE_ADDR"], $whitelist_ip) == true)
@@ -57,6 +57,10 @@ if ($whitelist_allowed == true)
 {
 	unset($whitelist_allowed);
 	$pf_enabled = false;
+}
+else
+{
+	unset($whitelist_allowed);
 }
 // Whitelist Feature Ended
 
